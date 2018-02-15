@@ -79,3 +79,6 @@ Verse:
 	<input type="text" placeholder="3:16" name="verse" required>
 	  <input type="submit" value="Submit">
 </form>
+<strong>Note:</strong>
+</br >
+<h3>If you would like to display more than one bible verse, you may enter a range into the verse box in the format <strong>3:16-20</strong> if you would like to get all the verses in a chapter, just enter the chapter number in the format <strong>3</strong>.</h3>
