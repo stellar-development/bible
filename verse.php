@@ -1,17 +1,19 @@
 <?php
-$book = $_POST['book'];
-$verse = $_POST['verse'];
-if(isset($book) && isset($verse)) {
-$url = "http://labs.bible.org/api/?passage=$book%20$verse";
-$book = ucwords($book);
-$output = "<strong>$book</strong> " . file_get_contents($url);
-echo $output;
+
+if($_POST && !empty($_POST["verse"]) && !empty($_POST["book"])) {
+	?>
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Bible | ExplosiveNight</title>
+		</head>
+		<body>
+			<p><strong><?php echo htmlspecialchars(ucwords($_POST["book"])); ?></strong> <?php echo file_get_contents("http://labs.bible.org/api/?passage=".urlencode($_POST["book"])."%20".urlencode($_POST["verse"])); ?></p>
+			<p><a href="search.php">Search Again</a></p>
+		</body>
+	</html>
+	<?php
 } else {
-	echo "Please enter a valid verse.";
+	header("Location: search.php"); 
+	die("Redirecting...");
 }
-?>
-	<head>
-		<title>Bible | ExplosiveNight</title>
-	</head>
-</br >
-<a href="lookup.php">Lookup another verse</a>
